@@ -14,6 +14,10 @@ describe('Testing Spanish version for Mobileview', () => {
         cy.pageHeader().should('be.visible').should('have.text', 'Wikipedia Preview demo')
     })
 
+    it('Check link in Header', () => {
+        cy.linkInHeader().should('have.attr', 'href', '../index.html')
+    })
+
     it('Check Header Font-Size', () => {
         cy.pageHeader().should('be.visible').should('have.css', 'font-size', '18px')
     })
@@ -38,7 +42,7 @@ describe('Testing Spanish version for Mobileview', () => {
         cy.para3().should('have.css', 'font-size', '16px')
     })
 
-    it('Check Span motor de corriente alterna', () => {
+    it('Check previewBox in motor de corriente alterna', () => {
         cy.get('body > div.container > div.content > p:nth-child(1) > span').should('have.text', 'motor de corriente alterna').click()
         cy.previewBox().should('be.visible')
         cy.previewBoxHeaderImg().should('be.visible')
@@ -46,12 +50,12 @@ describe('Testing Spanish version for Mobileview', () => {
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')
         cy.previewBoxFooterImg2().should('be.visible')
         cy.previewBoxFooterImg3().should('be.visible')
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Leer más en Wikipedia').click()
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Leer más en Wikipedia').and('have.attr', 'href', 'https://es.wikipedia.org/wiki/Motor_de_corriente_alterna?wprov=wppw1').click()
         cy.previewBoxCloseBtn().click()
         cy.previewBox().should('not.be.visible')
     })
 
-    it('Check Span Edison', () => {
+    it('Check previewBox in Edison', () => {
         cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'Edison').click({ force: true })
         cy.previewBox().should('be.visible')
         cy.previewBoxHeaderImg().should('be.visible')
@@ -59,24 +63,28 @@ describe('Testing Spanish version for Mobileview', () => {
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')
         cy.previewBoxFooterImg2().should('be.visible')
         cy.previewBoxFooterImg3().should('be.visible')
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Leer más en Wikipedia').click()
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Leer más en Wikipedia').and('have.attr', 'href', 'https://es.wikipedia.org/wiki/Thomas_Alva_Edison?wprov=wppw1').click()
         cy.previewBoxCloseBtn().click()
         cy.previewBox().should('not.be.visible')
     })
 
-    it('Check Span Smiljan', () => {
+    it('Check previewBox in Smiljan', () => {
         cy.get('body > div.container > div.content > p:nth-child(3) > span').should('have.text', 'Smiljan').click({ force: true })
         cy.previewBox().should('be.visible')
         cy.previewBoxHeaderImg().should('be.visible')
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')
         cy.previewBoxFooterImg2().should('be.visible')
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Leer más en Wikipedia').click()
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Leer más en Wikipedia').and('have.attr', 'href', 'https://es.wikipedia.org/wiki/Smiljan?wprov=wppw1').click()
         cy.previewBoxCloseBtn().click()
         cy.previewBox().should('not.be.visible')
     })
 
     it('Check Footer', () => {
         cy.pageFooter().should('be.visible')
+    })
+
+    it('Check Link in Footer', () => {
+        cy.linkInFooter().should('have.attr', 'href', 'https://github.com/wikimedia/wikipedia-preview')
     })
 
     it('Check Footer Font-Size', () => {

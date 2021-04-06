@@ -1,10 +1,8 @@
+//************************English Page Test in Desktop View*************************
+
 /// <reference types="Cypress" />
 
-describe('Testing English version for Mobileview', () => {
-
-    beforeEach(() => { 
-        cy.viewport('iphone-xr')
-    })
+describe('Testing English version', () => {
 
     it('Check URL', () => {
         cy.visit('http://localhost:8080/articles/english.html').url().should('include', '/english.html')  
@@ -14,8 +12,12 @@ describe('Testing English version for Mobileview', () => {
         cy.pageHeader().should('be.visible').should('have.text', 'Wikipedia Preview demo')
     })
 
+    it('Check link in Header', () => {
+        cy.linkInHeader().should('have.attr', 'href' , '../index.html') 
+    })
+
     it('Check Header Font-Size', () => {
-        cy.pageHeader().should('be.visible').should('have.css', 'font-size', '18px')  
+        cy.pageHeader().should('be.visible').should('have.css', 'font-size', '32px')  
     })
 
     it('Check Image Rendering', () => {
@@ -38,7 +40,7 @@ describe('Testing English version for Mobileview', () => {
         cy.para3().should('have.css', 'font-size', '16px') 
     })
 
-    it('Check Span Ivory', () => {
+    it('Check previewBox in Ivory', () => {
         cy.get('body > div.container > div.content > p:nth-child(1) > span').should('have.text', 'ivory').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
@@ -46,40 +48,32 @@ describe('Testing English version for Mobileview', () => {
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
         cy.previewBoxFooterImg2().should('be.visible')    
         cy.previewBoxFooterImg3().should('be.visible')     
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Read more on Wikipedia').click()  
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Read more on Wikipedia').and('have.attr', 'href', 'https://en.wikipedia.org/wiki/Ivory?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
 
-    it('Check Span  Bamingui-Bangoran National', () => {
+    it('Check previewBox in Bamingui-Bangoran National', () => {
         cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', ' Bamingui-Bangoran National').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continue Reading').click()   
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible') 
         cy.previewBoxFooterImg2().should('be.visible')  
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Read more on Wikipedia').click() 
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Read more on Wikipedia').and('have.attr', 'href', 'https://en.wikipedia.org/wiki/Bamingui-Bangoran_National_Park_and_Biosphere_Reserve?wprov=wppw1').click() 
         cy.previewBoxCloseBtn().click() 
         cy.previewBox().should('not.be.visible')  
     })
 
-    it('Check Span Chink Project', () => {
+    it('Check previewBox in Chinko Project', () => {
         cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)').should('have.text', 'Chinko Project').click({ force: true })
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continue Reading').click()  
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible') 
         cy.previewBoxFooterImg2().should('be.visible') 
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Read more on Wikipedia').click() 
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Read more on Wikipedia').and('have.attr','href', 'https://en.wikipedia.org/wiki/Chinko?wprov=wppw1').click() 
         cy.previewBoxCloseBtn().click() 
-        cy.previewBox().should('not.be.visible')  
-    })
-
-    it('Check Span 50', () => {
-        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(2)').scrollIntoView().should('have.text', '50').click({force:true})
-        cy.get('body > div.wp-popup > div > div.wikipediapreview-body.wikipediapreview-body-disambiguation').should('be.visible')
-        cy.get('body > div.wp-popup > div > div.wikipediapreview-body.wikipediapreview-body-disambiguation > div.wikipediapreview-body-action > a').click()
-        cy.previewBoxCloseBtn().click()
         cy.previewBox().should('not.be.visible')  
     })
 
@@ -87,10 +81,12 @@ describe('Testing English version for Mobileview', () => {
         cy.pageFooter().should('be.visible')
     })
 
+    it('Check Link in Footer', () => {
+        cy.linkInFooter().should('have.attr', 'href', 'https://github.com/wikimedia/wikipedia-preview')
+    })
+
     it('Check Footer Font-Size', () => {
         cy.get('body > div.footer > p').should('be.visible').should('have.css', 'font-size', '12px')  
     })
-
-
 
 })

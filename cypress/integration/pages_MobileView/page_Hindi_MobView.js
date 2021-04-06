@@ -13,6 +13,10 @@ describe('Testing Hindi version for Mobileview', () => {
     it('Check Header', () => {
         cy.pageHeader().should('be.visible').should('have.text', 'Wikipedia Preview demo') 
     })
+     
+    it('Check link in Header', () => {
+        cy.linkInHeader().should('have.attr', 'href' , '../index.html') 
+    })
 
     it('Check Header Font-Size', () => {
         cy.pageHeader().should('be.visible').should('have.css', 'font-size', '18px')  
@@ -39,42 +43,52 @@ describe('Testing Hindi version for Mobileview', () => {
         cy.para3().should('have.css', 'font-size', '16px')  
     })
 
-    it('Check Span मन्दिर', () => {
+    it('Check Close Button for Mobile', () => {
+        cy.get('body > div.container > div.cover > a > div').should('be.visible')
+    })
+
+    it('Check previewBox in मन्दिर', () => {
         cy.get('body > div.container > div.content > p:nth-child(1) > span').should('have.text', 'मन्दिर').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'पढ़ना जारी रखें').click()     
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
-        cy.readMoreBtn().should('be.visible').should('have.text', 'विकिपीडिया पर अधिक पढ़ें').click()  
+        cy.readMoreBtn().should('be.visible').should('have.text', 'विकिपीडिया पर अधिक पढ़ें').and('have.attr', 'href', 'https://hi.wikipedia.org/wiki/%E0%A4%AE%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A4%BF%E0%A4%B0?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
 
-    it('Check Span हुमांयू', () => {
+    it('Check previewBox in हुमांयू', () => {
         cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'हुमांयू').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
-        cy.readMoreBtn().should('be.visible').should('have.text', 'विकिपीडिया पर अधिक पढ़ें').click()  
+        cy.readMoreBtn().should('be.visible').should('have.text', 'विकिपीडिया पर अधिक पढ़ें').and('have.attr', 'href', 'https://hi.wikipedia.org/wiki/%E0%A4%B9%E0%A5%81%E0%A4%AE%E0%A4%BE%E0%A4%AF%E0%A5%82%E0%A4%81?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
 
-    it('Check Span अंकगणितीय', () => {
+    it('Check previewBox in अंकगणितीय', () => {
         cy.get('body > div.container > div.content > p:nth-child(4) > span').should('have.text', 'अंकगणितीय').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'पढ़ना जारी रखें').click()     
-        cy.previewBoxFooterImg1().scrollIntoView().should('be.visible') 
-        cy.previewBoxFooterImg2().should('be.visible')  
-        cy.previewBoxFooterImg3().should('be.visible') 
-        cy.readMoreBtn().should('be.visible').should('have.text', 'विकिपीडिया पर अधिक पढ़ें').click()  
+        cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
+        cy.previewBoxFooterImg2().should('be.visible')    
+        cy.previewBoxFooterImg3().scrollIntoView().should('be.visible') 
+        cy.previewBoxFooterImg4().should('be.visible')
+        cy.previewBoxFooterImg5().scrollIntoView().should('be.visible') 
+        cy.readMoreBtn().should('be.visible').should('have.text', 'विकिपीडिया पर अधिक पढ़ें').and('have.attr', 'href', 'https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%82%E0%A4%95%E0%A4%97%E0%A4%A3%E0%A4%BF%E0%A4%A4?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
 
     it('Check Footer', () => {
         cy.pageFooter().should('be.visible')
+    })
+
+    it('Check Link in Footer', () => {
+        cy.linkInFooter().should('have.attr', 'href', 'https://github.com/wikimedia/wikipedia-preview')
     })
 
     it('Check Footer Font-Size', () => {

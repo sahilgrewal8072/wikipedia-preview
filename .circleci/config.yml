@@ -4,22 +4,12 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/run: 
-          name: Chrome
-          executor: cypress/browsers-chrome73-ff68
-          start: npm run dev
-          wait-on: http://localhost:8080
-          record: true
-          command: npx cypress run --record --key 4b0445c1-a9b9-4b2e-8093-271d9ad33210
-          group: chrome
-          browser: chrome
+      - cypress/install
       - cypress/run:
-          name: Firefox
-          executor: cypress/browsers-chrome73-ff68
           start: npm run dev
-          wait-on: http://localhost:8080
-          record: true
-          command: npx cypress run --record --key 4b0445c1-a9b9-4b2e-8093-271d9ad33210
-          group: firefox-critical-path
-          browser: firefox
-          
+          wait-on: 'http://localhost:8080'
+          requires:
+            - cypress/install
+          parallel: true
+          parallelism: 2
+          group: 2 machines

@@ -13,7 +13,11 @@ describe('Testing Thai version for Mobileview', () => {
     it('Check Header', () => {
         cy.pageHeader().should('be.visible').should('have.text', 'Wikipedia Preview demo') 
     })
-
+    
+    it('Check link in Header', () => {
+        cy.linkInHeader().should('have.attr', 'href' , '../index.html') 
+    })
+    
     it('Check Header Font-Size', () => {
         cy.pageHeader().should('be.visible').should('have.css', 'font-size', '18px')   
     })
@@ -36,44 +40,70 @@ describe('Testing Thai version for Mobileview', () => {
         cy.para2().should('have.css', 'font-size', '16px')  
     })
 
-    it('Check Span พระมหาชนก', () => {
+    it('Check Close Button for Mobile', () => {
+        cy.get('body > div.container > div.cover > a > div').should('be.visible')
+    })
+
+    //*******************Images exceeding i.e More than 19 images have not been considered for test****************************
+
+    it('Check previewBox in พระมหาชนก', () => {
         cy.get('body > div.container > div.content > p:nth-child(1) > span:nth-child(1)').should('have.text', 'พระมหาชนก').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'อ่านต่อ').click()     
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
         cy.previewBoxFooterImg2().should('be.visible')    
-        cy.readMoreBtn().should('be.visible').should('have.text', 'อ่านเพิ่มเติมบนวิกิพีเดีย').click()  
+        cy.readMoreBtn().should('be.visible').should('have.text', 'อ่านเพิ่มเติมบนวิกิพีเดีย').and('have.attr', 'href', 'https://th.wikipedia.org/wiki/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%8A%E0%B8%99%E0%B8%81?wprov=wppw1').click()
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
 
-    it('Check Span วัดร่องขุ่น', () => {
+    it('Check previewBox in วัดร่องขุ่น', () => {
         cy.get('body > div.container > div.content > p:nth-child(1) > span:nth-child(2)').should('have.text', 'วัดร่องขุ่น').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.get('body > div.wp-popup > div > div.wikipediapreview-header > div.wikipediapreview-header-image').should('be.visible')  
         cy.continueReadBtn().should('have.text', 'อ่านต่อ').click({force:true})     
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
-        cy.readMoreBtn().should('be.visible').should('have.text', 'อ่านเพิ่มเติมบนวิกิพีเดีย').click() 
+        cy.readMoreBtn().should('be.visible').should('have.text', 'อ่านเพิ่มเติมบนวิกิพีเดีย').and('have.attr', 'href', 'https://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%B8%E0%B9%88%E0%B8%99?wprov=wppw1').click() 
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible') 
     })
 
-    it('Check Span จังหวัดเชียงราย', () => {
+    it('Check previewBox in จังหวัดเชียงราย', () => {
         cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'จังหวัดเชียงราย').click({ force: true })
         cy.previewBox().should('be.visible') 
         cy.get('body > div.wp-popup > div > div.wikipediapreview-header > div.wikipediapreview-header-image').should('be.visible')  
         cy.continueReadBtn().should('have.text', 'อ่านต่อ').click()     
-        cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)').scrollIntoView().should('be.visible')  
-        cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)').should('be.visible')    
-        cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(3)').should('be.visible')    
-        cy.readMoreBtn().should('be.visible').should('have.text', 'อ่านเพิ่มเติมบนวิกิพีเดีย').click()  
+        cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')
+        cy.previewBoxFooterImg2().should('be.visible')
+        cy.previewBoxFooterImg3().should('be.visible')
+        cy.previewBoxFooterImg4().scrollIntoView().should('be.visible')
+        cy.previewBoxFooterImg5().should('be.visible')
+        cy.previewBoxFooterImg6().should('be.visible')
+        cy.previewBoxFooterImg7().scrollIntoView().should('be.visible')
+        cy.previewBoxFooterImg8().should('be.visible')
+        cy.previewBoxFooterImg9().should('be.visible')
+        cy.previewBoxFooterImg10().scrollIntoView().should('be.visible')
+        cy.previewBoxFooterImg11().should('be.visible')
+        cy.previewBoxFooterImg12().should('be.visible')
+        cy.previewBoxFooterImg13().scrollIntoView().should('be.visible')
+        cy.previewBoxFooterImg14().should('be.visible')
+        cy.previewBoxFooterImg15().should('be.visible')
+        cy.previewBoxFooterImg16().scrollIntoView().should('be.visible')
+        cy.previewBoxFooterImg17().should('be.visible')
+        cy.previewBoxFooterImg18().should('be.visible')
+        cy.previewBoxFooterImg19().scrollIntoView().should('be.visible')   
+        cy.readMoreBtn().should('be.visible').should('have.text', 'อ่านเพิ่มเติมบนวิกิพีเดีย').and('have.attr', 'href', 'https://th.wikipedia.org/wiki/%E0%B8%88%E0%B8%B1%E0%B8%87%E0%B8%AB%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click() 
         cy.previewBox().should('not.be.visible')  
     })
 
     it('Check Footer', () => {
         cy.pageFooter().should('be.visible')
+    })
+
+    it('Check Link in Footer', () => {
+        cy.linkInFooter().should('have.attr', 'href', 'https://github.com/wikimedia/wikipedia-preview')
     })
 
     it('Check Footer Font-Size', () => {

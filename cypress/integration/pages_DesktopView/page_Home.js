@@ -3,26 +3,18 @@
 describe('Testing HomePage', () => {
 
   it('Check URL', () => {
-    cy.visit('http://localhost:8080/index.html').url().should('include', '/index.html') 
+    cy.visit('http://localhost:8080/index.html').url().should('include', '/index.html')
   })
 
   it('Check Header', () => {
-    cy.get('body > div.header').should('be.visible').should('have.text', 'Wikipedia Preview demo') 
+    cy.get('body > div.header').should('be.visible').should('have.text', 'Wikipedia Preview demo')
   })
 
   it('Check Header Font-Size', () => {
-    cy.get('body > div.header').should('be.visible').should('have.css', 'font-size', '32px')  
+    cy.get('body > div.header').should('be.visible').should('have.css', 'font-size', '32px')
   })
 
-  it('Check Footer', () => {
-    cy.get('body > div.footer').should('be.visible').should('have.text', '\n            \n                Articles on this list are from Wikipedia, which is released under the Creative Commons Attribution-Share-Alike License 3.0.\n                \n                 View Source \n            \n        ') // Validation Check for Footer
-  })
-
-  it('Check Footer Font-Size', () => {
-    cy.get('body > div.footer > p').should('be.visible').should('have.css', 'font-size', '12px')   
-  })
-
-  it('Check Image Gallery', () => {
+  it('Check Image Gallery at homePage', () => {
     cy.get('body > div.container > div > div:nth-child(1) > a > div.image > div').should('be.visible')  //Language: English
     cy.get('body > div.container > div > div:nth-child(2) > a > div.image > div').should('be.visible')   //Language: Bahasa Indonesia
     cy.get('body > div.container > div > div:nth-child(3) > a > div.image > div').should('be.visible')   //Language: Hindi
@@ -72,6 +64,18 @@ describe('Testing HomePage', () => {
     cy.get('body > div.container > div > div:nth-child(7)').should('be.visible')  //Checking visibility of the container
     cy.get('body > div.container > div > div:nth-child(7) > a > div.subtitle').should('have.text', '\n                            Language · Arabic\n                        ') //Checking subtitle for language validation
     cy.get('body > div.container > div > div:nth-child(7) > a > div.title').should('have.css', 'font-size', '18px') //Validating font size of title
+  })
+
+  it('Check Footer', () => {
+    cy.get('body > div.footer').should('be.visible').should('have.text', '\n            \n                Articles on this list are from Wikipedia, which is released under the Creative Commons Attribution-Share-Alike License 3.0.\n                \n                 View Source \n            \n        ') // Validation Check for Footer
+  })
+
+  it('Check Link in Footer', () => {
+    cy.get('body > div.footer > p > a').should('have.attr', 'href', 'https://github.com/wikimedia/wikipedia-preview')
+  })
+
+  it('Check Footer Font-Size', () => {
+    cy.get('body > div.footer > p').should('be.visible').should('have.css', 'font-size', '12px')
   })
 
 })

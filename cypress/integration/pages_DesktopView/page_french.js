@@ -10,6 +10,10 @@ describe('Testing French version', () => {
         cy.pageHeader().should('be.visible').should('have.text', 'Wikipedia Preview demo') 
     })
 
+    it('Check link in Header', () => {
+        cy.linkInHeader().should('have.attr', 'href' , '../index.html') 
+    })
+
     it('Check Header Font-Size', () => {
         cy.pageHeader().should('be.visible').should('have.css', 'font-size', '32px')    
     })
@@ -34,7 +38,7 @@ describe('Testing French version', () => {
         cy.para3().should('have.css', 'font-size', '16px')  
     })
 
-    it('Check Span résolutions', () => {
+    it('Check previewBox in résolutions', () => {
         cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'résolutions').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
@@ -42,15 +46,15 @@ describe('Testing French version', () => {
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
         cy.previewBoxFooterImg2().should('be.visible')    
         cy.previewBoxFooterImg3().should('be.visible')     
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Lire davantage sur Wikipédia').click()  
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Lire davantage sur Wikipédia').and('have.attr', 'href', 'https://fr.wikipedia.org/wiki/Conseil_de_s%C3%A9curit%C3%A9_des_Nations_unies?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
 
-    it('Check Span droit de veto', () => {
+    it('Check previewBox in droit de veto', () => {
         cy.get('body > div.container > div.content > p:nth-child(3) > span').should('have.text', 'droit de veto').click({force:true})
         cy.previewBox().should('be.visible') 
-        cy.readMoreBtn().should('be.visible').should('have.text', 'Lire davantage sur Wikipédia').click()  
+        cy.readMoreBtn().should('be.visible').should('have.text', 'Lire davantage sur Wikipédia').and('have.attr', 'href', 'https://fr.wikipedia.org/wiki/Veto?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  
         cy.previewBox().should('not.be.visible')  
     })
@@ -59,7 +63,12 @@ describe('Testing French version', () => {
         cy.pageFooter().should('be.visible')
     })
 
+    it('Check Link in Footer', () => {
+        cy.linkInFooter().should('have.attr', 'href', 'https://github.com/wikimedia/wikipedia-preview')
+    })
+
     it('Check Footer Font-Size', () => {
         cy.get('body > div.footer > p').should('be.visible').should('have.css', 'font-size', '12px')    
     })
+    
 })
