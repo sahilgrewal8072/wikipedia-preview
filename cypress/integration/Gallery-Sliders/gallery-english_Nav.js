@@ -6,7 +6,7 @@ describe('Navigations in slider at English version', () => {
 
     it('Navigate in Ivory Sliders', () => {
         cy.visit('http://localhost:8080/articles/english.html').url().should('include', '/english.html') //visit page
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.previewBoxFooterImg1().scrollIntoView().click() //pic 1
         cy.sliderImg1().should('be.visible')
@@ -55,7 +55,7 @@ describe('Navigations in slider at English version', () => {
 
     it('Navigate in bbNational Sliders', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.previewBoxFooterImg1().scrollIntoView().click() //pic 1
         cy.sliderImg1().should('be.visible')
@@ -67,7 +67,7 @@ describe('Navigations in slider at English version', () => {
 
     it('Navigate in chinko Sliders', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(3) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.previewBoxFooterImg1().scrollIntoView().click()
         cy.sliderImg1().should('be.visible')

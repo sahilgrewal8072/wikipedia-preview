@@ -19,7 +19,7 @@ Cypress.Commands.add('para4', () => {
 })
 
 Cypress.Commands.add('coverImage', () => {
-    cy.get('body > div.container > div.cover', {timeout:20000})  
+    cy.get('body > div.container > div.cover', {timeout:25000})  
 })
 
 Cypress.Commands.add('pageHeader', () => {
@@ -31,90 +31,90 @@ Cypress.Commands.add('linkInHeader', () => {
 })
 
 Cypress.Commands.add('previewBox', () => {
-    cy.get('body > div.wp-popup', {timeout:10000})      
+    cy.get('body > div.wp-popup', {timeout:50000})      
 })
 
 Cypress.Commands.add('previewBoxHeaderImg', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-header > div.wikipediapreview-header-image',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-header > div.wikipediapreview-header-image',{timeout:25000})
 })
 
 Cypress.Commands.add('continueReadBtn', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-footer > span')  
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-footer > span', {timeout:15000})  
 })
 
 Cypress.Commands.add('previewBoxFooterImg1', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg2', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg3', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(3)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(3)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg4', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(4)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(4)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg5', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(5)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(5)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg6', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(6)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(6)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg7', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(7)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(7)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg8', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(8)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(8)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg9', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(9)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(9)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg10', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(10)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(10)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg11', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(11)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(11)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg12', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(12)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(12)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg13', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(13)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(13)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg14', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(14)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(14)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg15', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(15)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(15)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg16', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(16)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(16)',{timeout:25000})
 })
 Cypress.Commands.add('previewBoxFooterImg17', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(17)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(17)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg18', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(18)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(18)',{timeout:25000})
 })
 
 Cypress.Commands.add('previewBoxFooterImg19', () => {
-    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(19)',{timeout:20000})
+    cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(19)',{timeout:25000})
 })
 
 Cypress.Commands.add('pageFooter', () => {

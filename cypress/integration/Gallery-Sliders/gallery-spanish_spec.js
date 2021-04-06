@@ -6,7 +6,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening motor de corriente alterna slider via image1', () => {
         cy.visit('http://localhost:8080/articles/spanish.html').url().should('include', '/spanish.html') //visit page
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -21,7 +21,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening motor de corriente alterna slider via image2', () => {
         cy.visit('http://localhost:8080/articles/spanish.html').url().should('include', '/spanish.html') //visit page
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -36,7 +36,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening motor de corriente alterna slider via image3', () => {
         cy.visit('http://localhost:8080/articles/spanish.html').url().should('include', '/spanish.html') //visit page
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(3)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -51,7 +51,7 @@ describe('Checking image gallery sliders', () => {
      
     it('Opening Edison slider via image1', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -66,7 +66,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening Edison slider via image2', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -81,7 +81,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening Edison slider via image3', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(3)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -96,7 +96,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening Smiljan slider via image1', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(3) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(3) > span', {timeout:15000}).click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
         cy.sliderImg1().should('be.visible') //pic 1 visible in slider
@@ -110,7 +110,7 @@ describe('Checking image gallery sliders', () => {
 
     it('Opening Smiljan slider via image2', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(3) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(3) > span', {timeout:15000}).click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
         cy.sliderImg2().should('be.visible') //pic 1 visible in slider

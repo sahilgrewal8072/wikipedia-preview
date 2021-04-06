@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('Testing Thai version', () => {
+describe.skip('Testing Thai version', () => {
 
     it('Check URL', () => {
         cy.visit('http://localhost:8080/articles/thai.html').url().should('include', '/thai.html')  
@@ -37,7 +37,7 @@ describe('Testing Thai version', () => {
     })
 
     it('Check previewBox in พระมหาชนก', () => {
-        cy.get('body > div.container > div.content > p:nth-child(1) > span:nth-child(1)').should('have.text', 'พระมหาชนก').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span:nth-child(1)', {timeout:15000}).should('have.text', 'พระมหาชนก').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'อ่านต่อ').click()     
@@ -49,7 +49,7 @@ describe('Testing Thai version', () => {
     })
 
     it('Check previewBox in วัดร่องขุ่น', () => {
-        cy.get('body > div.container > div.content > p:nth-child(1) > span:nth-child(2)').should('have.text', 'วัดร่องขุ่น').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(1) > span:nth-child(2)', {timeout:15000}).should('have.text', 'วัดร่องขุ่น').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.get('body > div.wp-popup > div > div.wikipediapreview-header > div.wikipediapreview-header-image').should('be.visible')  
         cy.continueReadBtn().should('have.text', 'อ่านต่อ').click({force:true})     
@@ -60,7 +60,7 @@ describe('Testing Thai version', () => {
     })
 
     it('Check previewBox in จังหวัดเชียงราย', () => {
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'จังหวัดเชียงราย').click({ force: true })
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).should('have.text', 'จังหวัดเชียงราย').click({ force: true })
         cy.previewBox().should('be.visible') 
         cy.get('body > div.wp-popup > div > div.wikipediapreview-header > div.wikipediapreview-header-image').should('be.visible')  
         cy.continueReadBtn().should('have.text', 'อ่านต่อ').click()     

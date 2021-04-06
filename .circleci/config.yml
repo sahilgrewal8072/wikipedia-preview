@@ -6,10 +6,23 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
+          name: firefox
+          requires:
+            - cypress/install 
+          executor: cypress/browsers-chrome73-ff68
           start: npm run dev
-          wait-on: 'http://localhost:8080'
+          wait-on: http://localhost:8080
+          command: npx cypress run
+          group: firefox
+          browser: firefox
+
+      - cypress/run:
+          name: chrome
           requires:
             - cypress/install
-          parallel: true
-          parallelism: 2
-          group: 2 machines
+          executor: cypress/browsers-chrome73-ff68
+          start: npm run dev
+          wait-on: http://localhost:8080
+          command: npx cypress run
+          group: chrome
+          browser: chrome

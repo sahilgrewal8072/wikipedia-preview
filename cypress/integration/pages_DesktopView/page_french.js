@@ -39,7 +39,7 @@ describe('Testing French version', () => {
     })
 
     it('Check previewBox in résolutions', () => {
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'résolutions').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).should('have.text', 'résolutions').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continuer à lire').click()     
@@ -52,7 +52,7 @@ describe('Testing French version', () => {
     })
 
     it('Check previewBox in droit de veto', () => {
-        cy.get('body > div.container > div.content > p:nth-child(3) > span').should('have.text', 'droit de veto').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(3) > span', {timeout:15000}).should('have.text', 'droit de veto').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.readMoreBtn().should('be.visible').should('have.text', 'Lire davantage sur Wikipédia').and('have.attr', 'href', 'https://fr.wikipedia.org/wiki/Veto?wprov=wppw1').click()  
         cy.previewBoxCloseBtn().click()  

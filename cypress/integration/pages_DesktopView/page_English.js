@@ -41,7 +41,7 @@ describe('Testing English version', () => {
     })
 
     it('Check previewBox in Ivory', () => {
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').should('have.text', 'ivory').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).should('have.text', 'ivory').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continue Reading').click()  
@@ -54,7 +54,7 @@ describe('Testing English version', () => {
     })
 
     it('Check previewBox in Bamingui-Bangoran National', () => {
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', ' Bamingui-Bangoran National').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).should('have.text', ' Bamingui-Bangoran National').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continue Reading').click()   
@@ -66,7 +66,7 @@ describe('Testing English version', () => {
     })
 
     it('Check previewBox in Chinko Project', () => {
-        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)').should('have.text', 'Chinko Project').click({ force: true })
+        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)', {timeout:15000}).should('have.text', 'Chinko Project').click({ force: true })
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continue Reading').click()  

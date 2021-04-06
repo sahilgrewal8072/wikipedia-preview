@@ -39,7 +39,7 @@ describe('Testing Spanish version', () => {
     })
 
     it('Check previewBox in motor de corriente alterna', () => {
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').should('have.text', 'motor de corriente alterna').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).should('have.text', 'motor de corriente alterna').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continuar leyendo').click()     
@@ -52,7 +52,7 @@ describe('Testing Spanish version', () => {
     })
 
     it('Check previewBox in Edison', () => {
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'Edison').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).should('have.text', 'Edison').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Continuar leyendo').click()     
@@ -65,7 +65,7 @@ describe('Testing Spanish version', () => {
     })
 
     it('Check previewBox in Smiljan', () => {
-        cy.get('body > div.container > div.content > p:nth-child(3) > span').should('have.text', 'Smiljan').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(3) > span', {timeout:15000}).should('have.text', 'Smiljan').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  

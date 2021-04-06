@@ -5,7 +5,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening Ivory in slider for image1', () => {
         cy.visit('http://localhost:8080/articles/english.html').url().should('include', '/english.html') //visit page
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.previewBoxFooterImg1().scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -20,7 +20,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening Ivory in slider with image2', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()  //span ivory click
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()  //span ivory click
         cy.continueReadBtn().click()  //continue btn
         cy.previewBoxFooterImg2().scrollIntoView().click() //pic 2
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -38,7 +38,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening Ivory in slider with image3', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').click()  //span ivory click
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).click()  //span ivory click
         cy.continueReadBtn().click()  //continue btn
         cy.previewBoxFooterImg3().scrollIntoView().click() //pic 2
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -53,7 +53,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening bbNational in slider for image1', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -68,7 +68,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening bbNational in slider for image2', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)').scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -83,7 +83,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening Chinko in slider for image1', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)').click()
+        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(1)', { retries: 2 }).scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class
@@ -98,7 +98,7 @@ describe('Checking image gallery sliders in English', () => {
 
     it('Opening Chinko in slider for image2', () => {
         cy.reload()
-        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)').click()
+        cy.get('body > div.container > div.content > p:nth-child(3) > span:nth-child(1)', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.get('body > div.wp-popup > div > div.wikipediapreview-body > div > div > div:nth-child(2)', { retries: 2 }).scrollIntoView().click() //pic 1
         cy.sliderGalleryMain().should('be.visible')  //slider class

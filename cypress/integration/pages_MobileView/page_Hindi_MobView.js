@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('Testing Hindi version for Mobileview', () => {
+describe.skip('Testing Hindi version for Mobileview', () => {
 
     beforeEach(() => { 
         cy.viewport('iphone-xr')
@@ -48,7 +48,7 @@ describe('Testing Hindi version for Mobileview', () => {
     })
 
     it('Check previewBox in मन्दिर', () => {
-        cy.get('body > div.container > div.content > p:nth-child(1) > span').should('have.text', 'मन्दिर').click()
+        cy.get('body > div.container > div.content > p:nth-child(1) > span', {timeout:15000}).should('have.text', 'मन्दिर').click()
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'पढ़ना जारी रखें').click()     
@@ -59,7 +59,7 @@ describe('Testing Hindi version for Mobileview', () => {
     })
 
     it('Check previewBox in हुमांयू', () => {
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'हुमांयू').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).should('have.text', 'हुमांयू').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.previewBoxFooterImg1().scrollIntoView().should('be.visible')  
@@ -69,7 +69,7 @@ describe('Testing Hindi version for Mobileview', () => {
     })
 
     it('Check previewBox in अंकगणितीय', () => {
-        cy.get('body > div.container > div.content > p:nth-child(4) > span').should('have.text', 'अंकगणितीय').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(4) > span', {timeout:15000}).should('have.text', 'अंकगणितीय').click({force:true})
         cy.previewBox().should('be.visible') 
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'पढ़ना जारी रखें').click()     

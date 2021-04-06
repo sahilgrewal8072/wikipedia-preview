@@ -57,7 +57,7 @@ describe('Testing Bahasa Indonesia version for Mobileview', () => {
     })
 
     it('Check PreviewBox in Gili Meno', () => {
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').should('have.text', 'Gili Meno').click({force:true})
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).should('have.text', 'Gili Meno').click({force:true})
         cy.previewBox().should('be.visible')
         cy.previewBoxHeaderImg().should('be.visible')  
         cy.continueReadBtn().should('have.text', 'Lanjutkan Membaca').click()

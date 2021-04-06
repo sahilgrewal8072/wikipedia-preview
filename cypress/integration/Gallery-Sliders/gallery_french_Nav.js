@@ -6,7 +6,7 @@ describe('Navigations in slider at french version', () => {
 
     it('Navigate in résolutions Sliders', () => {
         cy.visit('http://localhost:8080/articles/french.html').url().should('include', '/french.html')
-        cy.get('body > div.container > div.content > p:nth-child(2) > span').click()
+        cy.get('body > div.container > div.content > p:nth-child(2) > span', {timeout:15000}).click()
         cy.continueReadBtn().click()
         cy.previewBoxFooterImg1().scrollIntoView().click()
         cy.sliderImg1().should('be.visible')
